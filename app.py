@@ -1,5 +1,4 @@
 import html
-
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -12,15 +11,11 @@ from sklearn.model_selection import train_test_split
 
 st.set_page_config(page_title="CROPIX AI", page_icon="🌾", layout="wide")
 
-# ------------------------------------------------------------------
-# COLUMN MAPPING - change the strings on the right to match your CSV
-# (defaults match the Kaggle "Crop Production in India" dataset)
-# ------------------------------------------------------------------
 COLS = dict(
     crop="Crop",
     year="Crop_Year",
     state="State",
-    season="Season",          # optional - set to None if you don't have it
+    season="Season",          
     area="Area",
     prod="Production",
     rain="Annual_Rainfall",
@@ -31,9 +26,9 @@ COLS = dict(
 C = COLS
 
 
-# ------------------------------------------------------------------
+
 # DATA LOADING
-# ------------------------------------------------------------------
+
 @st.cache_data
 def load_data(source):
     df = pd.read_csv(source)
